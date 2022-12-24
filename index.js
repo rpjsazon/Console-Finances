@@ -1,5 +1,9 @@
-var finances = [['Jan-2010', 867884],['Feb-2010', 984655],['Mar-2010', 322013],
-  ['Apr-2010', -69417],
+var finances = [
+                        //            0     1
+  ['Jan-2010', 867884], // array 0 [date][amount] 
+  ['Feb-2010', 984655], // array 1 [date][amount] total = array 1 - array 0 then push value to array 1
+  ['Mar-2010', 322013], // array 2 [date][amount] total = array 2 - array 1 then push value to array 2
+  ['Apr-2010', -69417], // array 3 [date][amount] 
   ['May-2010', 310503],
   ['Jun-2010', 522857],
   ['Jul-2010', 1033096],
@@ -84,8 +88,6 @@ var finances = [['Jan-2010', 867884],['Feb-2010', 984655],['Mar-2010', 322013],
   ['Feb-2017', 671099]
   ];
 
-var firstElement = finances[0];
-var arrayAmount = firstElement[1];
 
 var dollar = new Intl.NumberFormat('en-US', { 
   style: 'currency', 
@@ -108,11 +110,32 @@ console.log('Total:', dollar.format(total));
 
 
 // The average of the changes in Profit/Losses over the entire period.
-
 // You will need to track what the total change in profits is from month to month and then find the average.
-
 // (Total/Number of months)
+let dateValue = [];
+let amountValue = [];
+
+for (let i = 0; i < finances.length; i++) {
+  dateValue.push(finances[i][0]);
+}
+console.log(dateValue);
+
+
+for (let i = 0; i < finances.length; i++) {
+  if (finances[i] % 2){
+  
+  }
+}
+console.log(amountValue);
+
 
 // The greatest increase in profits (date and amount) over the entire period.
+var largest = 0;
+for (var l = 0; l < finances.length; l++) {
+  if (finances[l][1] > largest)
+  largest = finances[l][1];
+}
+console.log(largest);
 
 // The greatest decrease in losses (date and amount) over the entire period.
+
