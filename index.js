@@ -112,30 +112,180 @@ console.log('Total:', dollar.format(total));
 // The average of the changes in Profit/Losses over the entire period.
 // You will need to track what the total change in profits is from month to month and then find the average.
 // (Total/Number of months)
-let dateValue = [];
-let amountValue = [];
 
+let averageChange = [];
 for (let i = 0; i < finances.length; i++) {
-  dateValue.push(finances[i][0]);
-}
-console.log(dateValue);
-
-
-for (let i = 0; i < finances.length; i++) {
-  if (finances[i] % 2){
-  
+  if (finances[i] % 1) {
+    averageChange = finances[i][1] - finances[i-1]
   }
 }
-console.log(amountValue);
+console.log(averageChange);
+
+//2010
+// var aba = ''; 
+// var acb = '';
+// var adc = '';
+// var aed = '';
+// var afe = '';
+// var agf = '';
+// var ahg = '';
+// var aih = '';
+// var aji = '';
+// var akj = '';
+// var alk = '';
+// var aml = '';
+// //2011
+// var bba = '';
+// var bcb = '';
+// var bdc = '';
+// var bed = '';
+// var bfe = '';
+// var bgf = '';
+// var bhg = '';
+// var bih = '';
+// var bji = '';
+// var bkj = '';
+// var blk = '';
+// var bml = '';
+// //2012
+// var cba = '';
+// var ccb = '';
+// var cdc = '';
+// var ced = '';
+// var cfe = '';
+// var cgf = '';
+// var chg = '';
+// var cih = '';
+// var cji = '';
+// var ckj = '';
+// var clk = '';
+// var cml = '';
+// //2013
+// var dba = '';
+// var dcb = '';
+// var ddc = '';
+// var ded = '';
+// var dfe = '';
+// var dgf = '';
+// var dhg = '';
+// var dih = '';
+// var dji = '';
+// var dkj = '';
+// var dlk = '';
+// var dml = '';
+// //2014
+// var eba = '';
+// var ecb = '';
+// var edc = '';
+// var eed = '';
+// var efe = '';
+// var egf = '';
+// var ehg = '';
+// var eih = '';
+// var eji = '';
+// var ekj = '';
+// var elk = '';
+// var eml = '';
+// //2015
+// var fba = '';
+// var fcb = '';
+// var fdc = '';
+// var fed = '';
+// var ffe = '';
+// var fgf = '';
+// var fhg = '';
+// var fih = '';
+// var fji = '';
+// var fkj = '';
+// var flk = '';
+// var fml = '';
+// //2016
+// var gba = '';
+// var gcb = '';
+// var gdc = '';
+// var ged = '';
+// var gfe = '';
+// var ggf = '';
+// var ghg = '';
+// var gih = '';
+// var gji = '';
+// var gkj = '';
+// var glk = '';
+// var gml = '';
+// //2017
+// var hba = '';
+// var hcb = '';
+
+// //2010
+// if (finances[1]) {
+//   aba = finances[1][1] - finances[0][1];
+// }
+// if (finances[2]) {
+//   acb = finances[2][1] - Number(aba);
+// }
+// if (finances[3]) {
+//   adc = finances[3][1] - Number(acb);
+// }
+// if (finances[4]) {
+//   aed = finances[4][1] - Number(adc);
+// }
+// if (finances[5]) {
+//   afe = finances[5][1] - Number(aed);
+// }
+// if (finances[6]) {
+//   agf = finances[6][1] - Number(afe);
+// }
+// if (finances[7]) {
+//   ahg = finances[7][1] - Number(agf);
+// }
+// if (finances[8]) {
+//   aih = finances[8][1] - Number(ahg);
+// }
+// if (finances[9]) {
+//   aji = finances[9][1] - Number(aih);
+// }
+// if (finances[10]) {
+//   akj = finances[10][1] - Number(aji);
+// }
+// if (finances[11]) {
+//   alk = finances[10][1] - Number(akj);
+// }
+// if (finances[12]) {
+//   aml = finances[10][1] - Number(alk);
+// }
+
+// console.log(aba);
+// console.log(acb);
+
+//-------------------------------------------------------//
+
+
+
+//let dateValue = [];
+// let amountValue = [];
+
+// for (let i = 0; i < finances.length; i++) {
+//   dateValue.push(finances[i][0]);
+// }
+// console.log(dateValue);
+
+
+// for (let i = 0; i < finances.length; i++) {
+//   if (finances[i] % 2){
+  
+//   }
+// }
+// console.log(amountValue);
 
 
 // The greatest increase in profits (date and amount) over the entire period.
 var largest = 0;
 for (var l = 0; l < finances.length; l++) {
-  if (finances[l][1] > largest)
+  if (finances[l][1] > largest) {
   largest = finances[l][1];
+  }
 }
-console.log(largest);
+console.log('Greatest Increase in Profits: ', largest);
 
 // The greatest decrease in losses (date and amount) over the entire period.
 
