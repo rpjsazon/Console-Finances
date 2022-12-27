@@ -111,15 +111,26 @@ console.log('Total:', dollar.format(total));
 
 // The average of the changes in Profit/Losses over the entire period.
 // You will need to track what the total change in profits is from month to month and then find the average.
-// (Total/Number of months)
-
-let averageChange = [];
-for (let i = 0; i < finances.length; i++) {
-  if (finances[i] % 1) {
-    averageChange = finances[i][1] - finances[i-1]
-  }
+var averageNumber = [];
+for (var i = 1; i < finances.length; i++) {
+  finances[i][1] -= finances[i-1][1];
+  averageNumber.push(finances[i][1]);
 }
-console.log(averageChange);
+
+//(Total/Number of months)
+var aveTotal = 0;
+for (var i = 0; i < averageNumber.length; i++) { 
+  aveTotal += averageNumber[i] /= finances.length;
+}
+console.log('Average Change:', dollar.format(aveTotal));
+
+// let averageChange = [];
+// for (let i = 1; i < finances.length; i++) {
+//   if (finances[i] % 1) {
+//     averageChange = finances[i][1] - finances[i-1]
+//   }
+// }
+// console.log(averageChange);
 
 //2010
 // var aba = ''; 
@@ -259,8 +270,6 @@ console.log(averageChange);
 
 //-------------------------------------------------------//
 
-
-
 //let dateValue = [];
 // let amountValue = [];
 
@@ -285,7 +294,13 @@ for (var l = 0; l < finances.length; l++) {
   largest = finances[l][1];
   }
 }
-console.log('Greatest Increase in Profits: ', largest);
+console.log('Greatest Increase in Profits: ',finances[l], dollar.format(largest));
 
 // The greatest decrease in losses (date and amount) over the entire period.
-
+var largest = 0;
+for (var d = 0; l < finances.length; d++) {
+  if (finances[d][1] >= largest) {
+  largest = finances[d][1];
+  }
+}
+console.log('Greatest decrease in Profits: ',finances[d], dollar.format(largest));
