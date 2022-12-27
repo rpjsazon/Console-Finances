@@ -297,10 +297,10 @@ for (var l = 0; l < finances.length; l++) {
 console.log('Greatest Increase in Profits: ',finances[l], dollar.format(largest));
 
 // The greatest decrease in losses (date and amount) over the entire period.
-var largest = 0;
+var decreased = 0;
 for (var d = 0; l < finances.length; d++) {
-  if (finances[d][1] >= largest) {
-  largest = finances[d][1];
+  if (finances[d][1] >= decreased) {
+  decreased = finances[d][1];
   }
 }
-console.log('Greatest decrease in Profits: ',finances[d], dollar.format(largest));
+console.log('Greatest decrease in Profits: ',finances[d], dollar.format(decreased));
