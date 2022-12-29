@@ -88,7 +88,7 @@ var finances = [
   ['Feb-2017', 671099]
   ];
 
-
+// Dollar Format
 var dollar = new Intl.NumberFormat('en-US', { 
   style: 'currency', 
   currency: 'USD', 
@@ -108,21 +108,45 @@ for (var i = 0; i < finances.length; i++) {
 }
 console.log('Total:', dollar.format(total));
 
-
 // The average of the changes in Profit/Losses over the entire period.
 // You will need to track what the total change in profits is from month to month and then find the average.
-var averageNumber = [];
-for (var i = 1; i < finances.length; i++) {
-  finances[i][1] -= finances[i-1][1];
-  averageNumber.push(finances[i][1]);
-}
+var monthsArray = 0;
+var monthTotal = 0
+var averageNumber = 0;
+var differences = [];
 
-//(Total/Number of months)
-var aveTotal = 0;
-for (var i = 0; i < averageNumber.length; i++) { 
-  aveTotal += averageNumber[i] /= finances.length;
+// Creating nested loops
+// Reference: https://javascript.plainenglish.io/nested-for-loops-in-javascript-6d7c9ffba5e
+for (var m = 0; m < finances.length; m++) {
+  for (var p = m + 1; p < finances.length; p++) {
+    monthsArray = finances[p][1] - finances[m][1];
+    //push months
+    differences.push(monthsArray);
+    m++;
+  }
 }
-console.log('Average Change:', dollar.format(aveTotal));
+// Looping differences
+for(var k = 0; k < differences.length; k++) {
+  monthTotal += differences[k];
+}
+//(Total/Number of months)
+averageNumber = monthTotal / (finances.length -1);
+//Output with dollar sign
+console.log("Average Change: " + dollar.format(averageNumber));
+
+// Trial Getting Average 2
+// var averageNumber = [];
+// for (var i = 1; i < finances.length; i++) {
+//   finances[i][1] -= finances[i-1][1];
+//   averageNumber.push(finances[i][1]);
+// }
+
+// Trial Getting Average 3
+// var aveTotal = 0;
+// for (var i = 0; i < averageNumber.length; i++) { 
+//   aveTotal += averageNumber[i] /= finances.length;
+// }
+// console.log('Average Change:', dollar.format(aveTotal));
 
 // let averageChange = [];
 // for (let i = 1; i < finances.length; i++) {
@@ -132,175 +156,10 @@ console.log('Average Change:', dollar.format(aveTotal));
 // }
 // console.log(averageChange);
 
-//2010
-// var aba = ''; 
-// var acb = '';
-// var adc = '';
-// var aed = '';
-// var afe = '';
-// var agf = '';
-// var ahg = '';
-// var aih = '';
-// var aji = '';
-// var akj = '';
-// var alk = '';
-// var aml = '';
-// //2011
-// var bba = '';
-// var bcb = '';
-// var bdc = '';
-// var bed = '';
-// var bfe = '';
-// var bgf = '';
-// var bhg = '';
-// var bih = '';
-// var bji = '';
-// var bkj = '';
-// var blk = '';
-// var bml = '';
-// //2012
-// var cba = '';
-// var ccb = '';
-// var cdc = '';
-// var ced = '';
-// var cfe = '';
-// var cgf = '';
-// var chg = '';
-// var cih = '';
-// var cji = '';
-// var ckj = '';
-// var clk = '';
-// var cml = '';
-// //2013
-// var dba = '';
-// var dcb = '';
-// var ddc = '';
-// var ded = '';
-// var dfe = '';
-// var dgf = '';
-// var dhg = '';
-// var dih = '';
-// var dji = '';
-// var dkj = '';
-// var dlk = '';
-// var dml = '';
-// //2014
-// var eba = '';
-// var ecb = '';
-// var edc = '';
-// var eed = '';
-// var efe = '';
-// var egf = '';
-// var ehg = '';
-// var eih = '';
-// var eji = '';
-// var ekj = '';
-// var elk = '';
-// var eml = '';
-// //2015
-// var fba = '';
-// var fcb = '';
-// var fdc = '';
-// var fed = '';
-// var ffe = '';
-// var fgf = '';
-// var fhg = '';
-// var fih = '';
-// var fji = '';
-// var fkj = '';
-// var flk = '';
-// var fml = '';
-// //2016
-// var gba = '';
-// var gcb = '';
-// var gdc = '';
-// var ged = '';
-// var gfe = '';
-// var ggf = '';
-// var ghg = '';
-// var gih = '';
-// var gji = '';
-// var gkj = '';
-// var glk = '';
-// var gml = '';
-// //2017
-// var hba = '';
-// var hcb = '';
-
-// //2010
-// if (finances[1]) {
-//   aba = finances[1][1] - finances[0][1];
-// }
-// if (finances[2]) {
-//   acb = finances[2][1] - Number(aba);
-// }
-// if (finances[3]) {
-//   adc = finances[3][1] - Number(acb);
-// }
-// if (finances[4]) {
-//   aed = finances[4][1] - Number(adc);
-// }
-// if (finances[5]) {
-//   afe = finances[5][1] - Number(aed);
-// }
-// if (finances[6]) {
-//   agf = finances[6][1] - Number(afe);
-// }
-// if (finances[7]) {
-//   ahg = finances[7][1] - Number(agf);
-// }
-// if (finances[8]) {
-//   aih = finances[8][1] - Number(ahg);
-// }
-// if (finances[9]) {
-//   aji = finances[9][1] - Number(aih);
-// }
-// if (finances[10]) {
-//   akj = finances[10][1] - Number(aji);
-// }
-// if (finances[11]) {
-//   alk = finances[10][1] - Number(akj);
-// }
-// if (finances[12]) {
-//   aml = finances[10][1] - Number(alk);
-// }
-
-// console.log(aba);
-// console.log(acb);
-
-//-------------------------------------------------------//
-
-//let dateValue = [];
-// let amountValue = [];
-
-// for (let i = 0; i < finances.length; i++) {
-//   dateValue.push(finances[i][0]);
-// }
-// console.log(dateValue);
-
-
-// for (let i = 0; i < finances.length; i++) {
-//   if (finances[i] % 2){
-  
-//   }
-// }
-// console.log(amountValue);
-
+// Reference: https://stackoverflow.com/questions/54623431/find-the-biggest-number-in-an-array-by-using-javascript-loops
 
 // The greatest increase in profits (date and amount) over the entire period.
-var largest = 0;
-for (var l = 0; l < finances.length; l++) {
-  if (finances[l][1] > largest) {
-  largest = finances[l][1];
-  }
-}
-console.log('Greatest Increase in Profits: ',finances[l], dollar.format(largest));
+console.log('Greatest increase in Profits:',dollar.format(Math.max(...differences)))
 
 // The greatest decrease in losses (date and amount) over the entire period.
-var decreased = 0;
-for (var d = 0; l < finances.length; d++) {
-  if (finances[d][1] >= decreased) {
-  decreased = finances[d][1];
-  }
-}
-console.log('Greatest decrease in Profits: ',finances[d], dollar.format(decreased));
+console.log('Greatest decrease in Profits:',dollar.format(Math.min(...differences)))
